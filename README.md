@@ -1,7 +1,9 @@
 # Programming Assignment 1
 
 CS 440/640 
+
 Name: Vijay Nagaraj Karigowdara
+
 Date: 03/03/2019
 
 ## Problem Definition
