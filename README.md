@@ -1,6 +1,6 @@
 # Programming Assignment 1
 
-CS 440/640 
+CS 640 
 
 Name: Vijay Nagaraj Karigowdara
 
