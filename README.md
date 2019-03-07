@@ -87,7 +87,7 @@ Output of this function is the activations in the layer . We will cache these so
 ## Experiments and Results
 ### Linear Data
 
-
+![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/image.png)
 
 The scatter plot shows that this is a linearly separable case
 
