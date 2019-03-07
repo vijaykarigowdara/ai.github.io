@@ -2,17 +2,15 @@
 
 CS 640 
 
-Vijay Nagaraj Karigowdara
+Name: Vijay Nagaraj Karigowdara
 
-Diptanshu Singh
+Team Member: Diptanshu Singh
 
 Date: 03/03/2019
 
 ## Problem Definition
 
 To build a neural network and implement the backpropagation algorithm to train it.
-
-
 
 ## Method and Implementation
 
@@ -22,6 +20,11 @@ We have to perform 3 tasks with this network -
 2. Separation of non-linear data
 3. Digit recognition
 We will implement a simple 2 layer neural network with following specification.
+
+Below are the choices for the activation functions:
+
+Sigmoid function: Gives the weighted sum between 0 and 1 with some bias in it for it to be inactive and only fire when the threshold is reached.
+Softmax function: Its capability of converting output as probabilities.
 
 1. Layer 1 :
 Input = Number of features
@@ -50,16 +53,6 @@ Hyperparameters for the network :
 3. Number of Epochs
 We will also understand the effect of these hyperparameters on our network by analysing the test error and train error in our network.
 
-## Helper functions
-
-1.sig : Gives the sigmoid of the input array ( calculated as f(z) = 1/(1+e^(-z)) )
-2.softmax : Gives the softmax of the input array ( calculated as f(z) = [e^(z1)/ sum(e^(zi), e^(z1)/ sum(e^(zi),....]
-3.softmax_to_y : Input softmax vector and returns the most probable class
-4.split : Splits the dataframe into k parts ( both X and y) and returns a list
-5.cross validation : Performs cross validation by spliting the dataset into test, train. Returns the average of test_error and train_error from the dataset
-6.plot_decision_boundary : Plots the decision boundary in 2D space. Can only be used when inoput is 2 dimensional.
-7.error_rate : Returns the ratio of misclassified points
-
 ## Implementation of Neural Network
 
 Functions used for the implementation :
@@ -84,6 +77,10 @@ Output of this function is the activations in the layer . We will cache these so
 
 5. hyperpara : This sets the hyperparameters in the neural network which will be used in the network
 
+6. Compute_Cost: Computes cost of the data set. This is the cost function which we hope to minimize after k epochs
+fit: Computer the train error after completeing k epoch
+predict: This is used after the neural network has been trained.
+
 ## Experiments and Results
 ### Linear Data
 
@@ -103,16 +100,24 @@ We would need more epochs since the function being calculated is complex. We wil
 ![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/non_linear_plots.png)
 ![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/non_linear_2.png)
 
+### Cross Validation
+
+By using K Fold cross validation, we divide the data into k subset and perform the same procedure k time. In each iteration, we take one of the k subsets for validation set and other k-1 for training set. When we take the error estimation for all k iteration and get their average, we find the effectiveness of our model. As we use the most of our data for fitting, we significantly reduce bias of our network as well the the variance as we use these data in validation. Therefore interchanging the training and testing dataset improves the effectiveness of our system.
+
 ### Regularization
 
 
-Any type of constrained optimization is regularization procedure. We can add a penalty in the performance function which would indicate how complex a function is. Below are most widely used method for regularizing a neural network. 
+Regularization helps in improving the model's performance by using regularization parameter lambda. This helps in case when the model performs better in train dataset but not in test data. This is also known as Overfitting. Model tries to learn all the details and noises in the training data and creates a convoluted model to closely fit the data points such that it doesn’t generalize well for the unseen data. So regularization technique helps the model to generalize better. This in turn improves the model’s performance on the unseen data as well.  We can add a penalty in the performance function which would indicate how complex a function is. Below are 3 methods to implement them
 
-L1 Regularization 
+1. L2 regularization: We use L2 Regularization to reduce the variance of the estimator by simplifying it. This will increase the bias and our expected error decreases.
 
-L2 Regularization 
+2. Wrapper: This method will enumerate the model with respect to the number of nodes in the neural network. We will have list of models with respective errors and can chose the model with minimum error.
 
-Dropout Regularization 
+3. Feature selection: The core issue with overfitting is that it has more number of independent parameters than the number of data points. Thus, by discarding irrelevant attributes we can avoid overfitting.
+
+## Performance effect due to L2 Regularization
+
+BYe introducing a cost term for bringing in more features with the objective function. Which means we will penalize the hypothesis complexity. Therefore, it tries to push the coefficients for many variables to zero and hence reduce cost term.
 
 #### Implementation of L2 regularization :  
 We are adding a term lambda*weight to the gradient on every term. This is used because for L2 regularization, we add lambda/2 * ( weight ) ^ 2 to the performace function. Derivative of this function wrt weight is lambda * weight. 
@@ -123,5 +128,10 @@ We are adding a term lambda*weight to the gradient on every term. This is used b
 ### Digit Recognition
 
 We have taken a neural network with more than 10 nodes in the layer. If we tke less than 10, the network will have to share computations, which may lead to poor performance.
+
+
+## Learning Rate effect on Neural Network
+
+Learning rate controls how much we are adjusting the weights of our network with respect the loss gradient. Lower the value, the slower we move along the downward slope. While this might be a good idea in terms of making sure that we don't miss any local minima, it could also mean that model will take a long time to converge. Hence, if we chose an optimal learning rate, we would spend lesser time to train our neural network.
 
 
