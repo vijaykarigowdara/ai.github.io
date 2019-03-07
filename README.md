@@ -115,7 +115,7 @@ Regularization helps in improving the model's performance by using regularizatio
 
 3. Feature selection: The core issue with overfitting is that it has more number of independent parameters than the number of data points. Thus, by discarding irrelevant attributes we can avoid overfitting.
 
-## Performance effect due to L2 Regularization
+### Performance effect due to L2 Regularization
 
 BYe introducing a cost term for bringing in more features with the objective function. Which means we will penalize the hypothesis complexity. Therefore, it tries to push the coefficients for many variables to zero and hence reduce cost term.
 
@@ -125,9 +125,11 @@ We are adding a term lambda*weight to the gradient on every term. This is used b
 ![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/regularized.png)
 
 
-### Digit Recognition
+## Digit Recognition
 
 We have taken a neural network with more than 10 nodes in the layer. If we tke less than 10, the network will have to share computations, which may lead to poor performance.
+
+![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/Digit.png)
 
 
 ## Learning Rate effect on Neural Network
