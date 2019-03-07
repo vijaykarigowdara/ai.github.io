@@ -90,8 +90,38 @@ Output of this function is the activations in the layer . We will cache these so
 ![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/image.png)
 
 The scatter plot shows that this is a linearly separable case
-
 We would not need a lot of epochs to come up with suitable weights as the space is linearly separable. As a result, I have restricted the number of epochs to be low : 500.
-
 Having higher number of epochs can lead to overfitting.
+
+Error in test set is  0.75 %
+![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/linear_plots.png)
+
+### Non-Linear Data
+
+![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/non_linear_scatter.png)
+We would need more epochs since the function being calculated is complex. We will explore the result of selecting different values of num_epochs and learning rate in the next section.
+![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/non_linear_plots.png)
+![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/non_linear_2.png)
+
+### Regularization
+
+
+Any type of constrained optimization is regularization procedure. We can add a penalty in the performance function which would indicate how complex a function is. Below are most widely used method for regularizing a neural network. 
+
+L1 Regularization 
+
+L2 Regularization 
+
+Dropout Regularization 
+
+#### Implementation of L2 regularization :  
+We are adding a term lambda*weight to the gradient on every term. This is used because for L2 regularization, we add lambda/2 * ( weight ) ^ 2 to the performace function. Derivative of this function wrt weight is lambda * weight. 
+
+![alt text](https://github.com/vijaykarigowdara/ai640_pa1/blob/master/regularized.png)
+
+
+### Digit Recognition
+
+We have taken a neural network with more than 10 nodes in the layer. If we tke less than 10, the network will have to share computations, which may lead to poor performance.
+
 
