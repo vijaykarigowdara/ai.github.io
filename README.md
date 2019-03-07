@@ -3,6 +3,7 @@
 CS 640 
 
 Vijay Nagaraj Karigowdara
+
 Diptanshu Singh
 
 Date: 03/03/2019
@@ -84,7 +85,7 @@ Output of this function is the activations in the layer . We will cache these so
 5. hyperpara : This sets the hyperparameters in the neural network which will be used in the network
 
 ## Experiments and Results
-## Linear Data
+### Linear Data
 
 
 
